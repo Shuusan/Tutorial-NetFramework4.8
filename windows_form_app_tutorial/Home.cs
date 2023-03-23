@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using windows_form_app_tutorial.Views;
 
 namespace windows_form_app_tutorial
 {
@@ -15,6 +16,12 @@ namespace windows_form_app_tutorial
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void btnBackgroundWorker_Click(object sender, EventArgs e)
+        {
+            BackgroudWorker frmBackgroudWorker = new BackgroudWorker();
+            frmBackgroudWorker.ShowDialog();
         }
     }
 }
