@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\HttpProgress.cs" />
-    <Compile Include="Class\ProgressStreamContent.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>

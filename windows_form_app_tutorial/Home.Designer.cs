@@ -55,7 +55,7 @@
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(724, 19);
+            this.lblVersion.Location = new System.Drawing.Point(724, 426);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(64, 15);
             this.lblVersion.TabIndex = 2;
@@ -70,6 +70,7 @@
             this.Controls.Add(this.btnBackgroundWorker);
             this.Controls.Add(this.lblTitle);
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.ResumeLayout(false);
             this.PerformLayout();
