@@ -3,7 +3,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using windows_form_app_tutorial.Class;
 
 namespace windows_form_app_tutorial.Views
 {
@@ -53,61 +56,61 @@ namespace windows_form_app_tutorial.Views
             {
 
 
-                using (WebClient webClient = new WebClient())
-                {
-                    webClient.DownloadProgressChanged += (s, progressArgs) =>
-                    {
-                        backgroundWorker1.ReportProgress(progressArgs.ProgressPercentage);
-                    };
-
-                    byte[] imageData = webClient.DownloadData(imageUrl);
-                    MemoryStream stream = new MemoryStream(imageData);
-                    e.Result = Image.FromStream(stream);
-                }
-
-                //var tcs = new TaskCompletionSource<Image>();
-
-                //Task.Run(async () =>
+                //using (WebClient webClient = new WebClient())
                 //{
-                //    try
+                //    webClient.DownloadProgressChanged += (s, progressArgs) =>
                 //    {
-                //        using (var httpClient = new HttpClient())
-                //        {
-                //            var response = await httpClient.GetAsync(imageUrl, HttpCompletionOption.ResponseHeadersRead);
-                //            response.EnsureSuccessStatusCode();
+                //        backgroundWorker1.ReportProgress(progressArgs.ProgressPercentage);
+                //    };
 
-                //            long contentLength = response.Content.Headers.ContentLength.GetValueOrDefault(0);
+                //    byte[] imageData = webClient.DownloadData(imageUrl);
+                //    MemoryStream stream = new MemoryStream(imageData);
+                //    e.Result = Image.FromStream(stream);
+                //}
 
-                //            using (var contentStream = await response.Content.ReadAsStreamAsync())
-                //            {
-                //                var progressHandler = new HttpProgress(backgroundWorker1, contentLength);
+                var tcs = new TaskCompletionSource<Image>();
 
-                //                using (var memoryStream = new MemoryStream())
-                //                {
-                //                    var buffer = new byte[8192];
-                //                    long bytesRead = 0;
-                //                    int read;
+                Task.Run(async () =>
+                {
+                    try
+                    {
+                        using (var httpClient = new HttpClient())
+                        {
+                            var response = await httpClient.GetAsync(imageUrl, HttpCompletionOption.ResponseHeadersRead);
+                            response.EnsureSuccessStatusCode();
 
-                //                    while ((read = await contentStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                //                    {
-                //                        await memoryStream.WriteAsync(buffer, 0, read);
-                //                        bytesRead += read;
-                //                        progressHandler.Report(bytesRead);
-                //                    }
+                            long contentLength = response.Content.Headers.ContentLength.GetValueOrDefault(0);
 
-                //                    memoryStream.Position = 0;
-                //                    tcs.SetResult(Image.FromStream(memoryStream));
-                //                }
-                //            }
-                //        }
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        tcs.SetException(ex);
-                //    }
-                //});
+                            using (var contentStream = await response.Content.ReadAsStreamAsync())
+                            {
+                                var progressHandler = new HttpProgress(backgroundWorker1, contentLength);
 
-                //e.Result = tcs.Task.Result;
+                                using (var memoryStream = new MemoryStream())
+                                {
+                                    var buffer = new byte[8192];
+                                    long bytesRead = 0;
+                                    int read;
+
+                                    while ((read = await contentStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                                    {
+                                        await memoryStream.WriteAsync(buffer, 0, read);
+                                        bytesRead += read;
+                                        progressHandler.Report(bytesRead);
+                                    }
+
+                                    memoryStream.Position = 0;
+                                    tcs.SetResult(Image.FromStream(memoryStream));
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        tcs.SetException(ex);
+                    }
+                });
+
+                e.Result = tcs.Task.Result;
             }
             catch (WebException ex)
             {

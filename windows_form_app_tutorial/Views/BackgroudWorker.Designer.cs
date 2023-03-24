@@ -39,26 +39,29 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(162, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(122, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(480, 342);
+            this.pictureBox1.Size = new System.Drawing.Size(360, 296);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(162, 360);
+            this.progressBar1.Location = new System.Drawing.Point(122, 312);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(480, 23);
+            this.progressBar1.Size = new System.Drawing.Size(360, 20);
             this.progressBar1.TabIndex = 1;
             this.progressBar1.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(162, 389);
+            this.button1.Location = new System.Drawing.Point(122, 337);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(231, 23);
+            this.button1.Size = new System.Drawing.Size(173, 20);
             this.button1.TabIndex = 2;
             this.button1.Text = "Gambar 2 MB";
             this.button1.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(409, 389);
+            this.button2.Location = new System.Drawing.Point(307, 337);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(233, 23);
+            this.button2.Size = new System.Drawing.Size(175, 20);
             this.button2.TabIndex = 3;
             this.button2.Text = "Gambar 200Kb";
             this.button2.UseVisualStyleBackColor = true;
@@ -84,23 +88,25 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(162, 419);
+            this.textBox1.Location = new System.Drawing.Point(122, 363);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(480, 22);
+            this.textBox1.Size = new System.Drawing.Size(361, 20);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Testing kalo masih bisa ngelakuin hal lain selagi download";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BackgroudWorker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 390);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "BackgroudWorker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Background Worker Tutorial";
