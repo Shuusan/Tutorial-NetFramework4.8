@@ -190,7 +190,9 @@
     <EmbeddedResource Include="Views\BindingNavigator.resx">
       <DependentUpon>BindingNavigator.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="credential.json" />
+    <None Include="credential.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

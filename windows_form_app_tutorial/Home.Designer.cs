@@ -63,7 +63,7 @@
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(50, 13);
             this.lblVersion.TabIndex = 2;
-            this.lblVersion.Text = "Ver 1.0.0";
+            this.lblVersion.Text = "Ver _._._";
             // 
             // btnBindingNavigator
             // 
