@@ -191,9 +191,6 @@
       <DependentUpon>BindingNavigator.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".gitignore" />
-    <None Include="credential.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
