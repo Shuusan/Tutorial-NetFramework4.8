@@ -143,6 +143,62 @@ namespace windows_form_app_tutorial.Views
             }
         }
 
-       
+        private async void btnRandomImage_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox1.Focus();
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            pictureBox1.Image = null;
+
+            string randomImageUrl = await DownloadImage();
+
+            if (!string.IsNullOrEmpty(randomImageUrl))
+            {
+                backgroundWorker1.RunWorkerAsync(randomImageUrl);
+            }
+        }
+
+        private async Task<string> DownloadImage()
+        {
+            // Generate a random URL for the image
+            var imageUrl = "https://picsum.photos/1024";
+
+            // Create the folder on the Desktop if it doesn't exist
+            string folderPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "randomImage");
+
+            Directory.CreateDirectory(folderPath);
+
+            // Generate a unique filename for the downloaded image
+            string filename = $"randomImage_{Guid.NewGuid()}.jpg";
+            string imagePath = Path.Combine(folderPath, filename);
+            string finalImageUrl = "";
+
+
+            // Download and save the image
+            using (HttpClient httpClient = new HttpClient())
+            {
+                // Follow the redirect and get the actual URL
+                // Set a user agent
+                httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
+                HttpResponseMessage response = await httpClient.GetAsync(imageUrl, HttpCompletionOption.ResponseHeadersRead);
+                response.EnsureSuccessStatusCode();
+                finalImageUrl = response.RequestMessage.RequestUri.ToString();
+
+                // Download the image
+                // byte[] imageBytes = await httpClient.GetByteArrayAsync(finalImageUrl);
+
+                // Save the image to the local file
+                // File.WriteAllBytes(imagePath, imageBytes);
+            }
+
+            // Console.WriteLine($"Image saved to: {imagePath}");
+
+            return finalImageUrl;
+
+
+        }
     }
 }
