@@ -1,6 +1,6 @@
 ﻿namespace windows_form_app_tutorial.Views
 {
-    partial class BackgroudWorker
+    partial class frmBackgrundWorker
     {
         /// <summary>
         /// Required designer variable.
@@ -96,7 +96,7 @@
             this.textBox1.Text = "Testing kalo masih bisa ngelakuin hal lain selagi download";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // BackgroudWorker
+            // frmBackgrundWorker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,7 +107,7 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.Name = "BackgroudWorker";
+            this.Name = "frmBackgrundWorker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Background Worker Tutorial";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

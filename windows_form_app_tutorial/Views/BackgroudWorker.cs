@@ -10,9 +10,9 @@ using windows_form_app_tutorial.Class;
 
 namespace windows_form_app_tutorial.Views
 {
-    public partial class BackgroudWorker : Form
+    public partial class frmBackgrundWorker : Form
     {
-        public BackgroudWorker()
+        public frmBackgrundWorker()
         {
             InitializeComponent();
         }

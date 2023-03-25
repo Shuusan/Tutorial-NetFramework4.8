@@ -18,8 +18,14 @@ namespace windows_form_app_tutorial
 
         private void btnBackgroundWorker_Click(object sender, EventArgs e)
         {
-            BackgroudWorker frmBackgroudWorker = new BackgroudWorker();
+            frmBackgrundWorker frmBackgroudWorker = new frmBackgrundWorker();
             frmBackgroudWorker.ShowDialog();
+        }
+
+        private void btnBindingNavigator_Click(object sender, EventArgs e)
+        {
+            frmBindingNavigator frmBindingNavigator = new frmBindingNavigator();
+            frmBindingNavigator.ShowDialog();
         }
     }
 }
