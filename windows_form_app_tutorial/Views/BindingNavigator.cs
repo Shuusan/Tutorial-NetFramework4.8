@@ -99,6 +99,8 @@ namespace windows_form_app_tutorial.Views
         /// <returns></returns>
         private async Task FetchDataAsync()
         {
+
+            // FIREBASE SECTION BEGIN
             FirestoreDb firestore = InitializeFirestore();
             CollectionReference collection = firestore.Collection("NetFramework").Document("BindingNavigator").Collection("Employees");
 
@@ -123,6 +125,10 @@ namespace windows_form_app_tutorial.Views
                 }
             }
 
+            // FIREBASE SECTION END
+
+
+            // Binding the data to bindingSource, then attach to dataGrid and Binding Navigator
             bindingSource1.DataSource = dataTable;
             dataGridView1.DataSource = bindingSource1;
             bindingNavigator1.BindingSource = bindingSource1;
@@ -231,6 +237,7 @@ namespace windows_form_app_tutorial.Views
                     await DeleteEmployeeFromFirestoreAsync(employeeId);
 
                     // Remove the item from the DataGridView
+                    // Remove using binding source
                     bindingSource1.RemoveCurrent();
                 }
             });
