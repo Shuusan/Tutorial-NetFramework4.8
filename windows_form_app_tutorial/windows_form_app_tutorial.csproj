@@ -142,6 +142,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\ColorGradient.cs" />
     <Compile Include="Class\HttpProgress.cs" />
     <Compile Include="HelperViews\LoadingPopup.cs">
       <SubType>Form</SubType>
@@ -169,6 +170,12 @@
     <Compile Include="Views\BindingNavigator.Designer.cs">
       <DependentUpon>BindingNavigator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Button.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HelperViews\LoadingPopup.resx">
       <DependentUpon>LoadingPopup.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BindingNavigator.resx">
       <DependentUpon>BindingNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Button.resx">
+      <DependentUpon>Button.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="credential.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

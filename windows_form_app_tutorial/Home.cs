@@ -52,5 +52,11 @@ namespace windows_form_app_tutorial
             frmBindingNavigator frmBindingNavigator = new frmBindingNavigator();
             frmBindingNavigator.ShowDialog();
         }
+
+        private void btnButton_Click(object sender, EventArgs e)
+        {
+            frmButton frmButton = new frmButton();
+            frmButton.ShowDialog();
+        }
     }
 }
