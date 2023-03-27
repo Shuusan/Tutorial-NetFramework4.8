@@ -30,25 +30,12 @@ namespace windows_form_app_tutorial.Views
 
             if (mouseArgs != null)
             {
-                if(mouseArgs.Button == MouseButtons.Right)
-                {
-                    // Button was clicked using mouse
-                    textBox1.Text = "Button nomor 1 ditekan menggunakan mouse (klik kiri)! ";
-                }
-                else if (mouseArgs.Button == MouseButtons.Middle)
-                {
-                    // Button was clicked using mouse
-                    textBox1.Text = "Button nomor 1 ditekan menggunakan mouse (klik tengah)! ";
-                }
-                else if(mouseArgs.Button == MouseButtons.Right)
-                {
-                    // Button was clicked using mouse
-                    textBox1.Text = "Button nomor 1 ditekan menggunakan mouse (klik kanan)! ";
-                }
+                // Button was clicked using mouse
+                textBox1.Text = "Button nomor 1 ditekan menggunakan mouse ! ";
             }
             else
             {
-
+                // Check if modifier button is pressed
                 if(ModifierKeys == Keys.Shift)
                 {
                     // Button was clicked using Enter + Shift key
@@ -84,8 +71,13 @@ namespace windows_form_app_tutorial.Views
             StringFormat format = new StringFormat();
             format.Alignment = StringAlignment.Center;
             format.LineAlignment = StringAlignment.Center;
+
+            // if overflows
             format.Trimming = StringTrimming.EllipsisCharacter;
+
+            //Write the text
             e.Graphics.DrawString(button.Text, button.Font, Brushes.White, button.ClientRectangle, format);
+
         }
 
         private void btnPaint_Click(object sender, EventArgs e)
@@ -106,5 +98,12 @@ namespace windows_form_app_tutorial.Views
             }
         }
 
+        private void btnClickAndEnter_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                btnClickAndEnter.PerformClick();
+            }
+        }
     }
 }

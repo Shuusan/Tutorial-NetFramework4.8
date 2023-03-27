@@ -144,6 +144,9 @@
   <ItemGroup>
     <Compile Include="Class\ColorGradient.cs" />
     <Compile Include="Class\HttpProgress.cs" />
+    <AdditionalFiles Include="Class\PolygonButton.cs">
+      <SubType>Component</SubType>
+    </AdditionalFiles>
     <Compile Include="HelperViews\LoadingPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +179,9 @@
     <Compile Include="Views\Button.Designer.cs">
       <DependentUpon>Button.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Class\PolygonButton.resx">
+      <DependentUpon>PolygonButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelperViews\LoadingPopup.resx">
       <DependentUpon>LoadingPopup.cs</DependentUpon>
     </EmbeddedResource>

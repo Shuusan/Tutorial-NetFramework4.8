@@ -44,6 +44,7 @@
             this.btnClickAndEnter.Text = "Click me or press enter when focus";
             this.btnClickAndEnter.UseVisualStyleBackColor = true;
             this.btnClickAndEnter.Click += new System.EventHandler(this.btnClickAndEnter_Click);
+            this.btnClickAndEnter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnClickAndEnter_MouseDown);
             // 
             // textBox1
             // 
@@ -58,7 +59,7 @@
             this.btnPaint.Name = "btnPaint";
             this.btnPaint.Size = new System.Drawing.Size(776, 232);
             this.btnPaint.TabIndex = 2;
-            this.btnPaint.Text = "Click to modify me!";
+            this.btnPaint.Text = "I\'ve been modified! click me to unmodified me!";
             this.btnPaint.UseVisualStyleBackColor = true;
             this.btnPaint.Click += new System.EventHandler(this.btnPaint_Click);
             this.btnPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.btnPaint_Paint);
